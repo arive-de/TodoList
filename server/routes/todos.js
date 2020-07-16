@@ -16,7 +16,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-    console.log(req.body)
 
     title = req.body.title
 
@@ -27,19 +26,15 @@ router.post('/', function(req, res, next) {
     .write()
 
     res.status(200).send({title, id})
-
 });
 
 router.post('/remove', function(req, res, next) {
-
-    console.log(req.body)
 
     db.get('todos')
     .remove({ id: req.body.id })
     .write()
 
     res.status(200).send('Todo has been removed')
-
 });
 
 module.exports = router;
